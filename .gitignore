@@ -1,0 +1,4 @@
+proxypool-agent
+*.exe
+*.test
+/vendor/
