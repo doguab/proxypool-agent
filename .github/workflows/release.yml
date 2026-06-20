@@ -43,16 +43,15 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          path: dist
-          merge-multiple: true
+          path: artifacts
 
-      - name: Rename binaries
+      - name: Prepare release binaries
         run: |
-          mv dist/proxypool-agent-linux-amd64 proxypool-agent-linux-amd64 || true
-          mv dist/proxypool-agent-linux-arm64 proxypool-agent-linux-arm64 || true
-          ls -la dist/
+          mkdir -p release
+          find artifacts -type f -name 'proxypool-agent-linux-*' -exec cp {} release/ \;
+          ls -la release/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/proxypool-agent-linux-*
+          files: release/proxypool-agent-linux-*
