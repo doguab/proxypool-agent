@@ -19,7 +19,7 @@ Anyone can install this agent, but without a valid secret registered in **your**
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/doguab/proxypool-agent/main/scripts/install.sh \
-  | sudo HUB_URL=wss://your-hub.example.com/tunnel bash
+  | sudo HUB_URL=wss://proxy.cronwork.com/tunnel bash
 ```
 
 The installer prints a one-time **secret**. Add it in your hub admin panel.

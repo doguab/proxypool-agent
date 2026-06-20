@@ -1,4 +1,5 @@
 proxypool-agent
+proxypool-agent-linux-*
 *.exe
 *.test
 /vendor/
