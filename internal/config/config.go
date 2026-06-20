@@ -52,12 +52,13 @@ func Save(path string, cfg Config) error {
 }
 
 func GenerateSecret() (string, error) {
-	buf := make([]byte, 32)
+	const length = 52
+	buf := make([]byte, length)
 	if _, err := rand.Read(buf); err != nil {
 		return "", err
 	}
 	const alphabet = "abcdefghijklmnopqrstuvwxyz234567"
-	out := make([]byte, 52)
+	out := make([]byte, length)
 	for i := range out {
 		out[i] = alphabet[int(buf[i])%len(alphabet)]
 	}
